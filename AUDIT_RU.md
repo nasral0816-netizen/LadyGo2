@@ -17,7 +17,7 @@
 
 ## Проверка LadyGo2 после переноса
 
-- GitHub Actions run `45039314548` (**LadyGo CI**) завершился со статусом **success**.
+- GitHub Actions runs `45039314548`, `45039728769` и `45039732548` (**LadyGo CI**) завершились со статусом **success**.
 - Успешно прошли установка npm-зависимостей, проверка Expo config, Expo Doctor и Android bundle export.
 - Это CI-проверка JavaScript/Expo-экспорта. Release APK из LadyGo2 пока не собирался; APK workflow оставлен ручным.
 - В LadyGo2 отсутствует `.env`; исходный `.env` не копировался. Репозиторий LadyGo2 сейчас публичный.
