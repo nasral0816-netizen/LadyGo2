@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "LadyGo",
+    "slug": "guga",
+    "version": "6.8.7",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "ladygo",
+    "description": "LadyGo — сервис поездок с заботой: заказ поездки и доставки, предварительный заказ, карта, маршрут и связь с водителем.",
+    "primaryColor": "#E85D91",
+    "backgroundColor": "#E65B8A",
+    "icon": "./icon.png",
+    "android": {
+      "package": "com.ladygo.app",
+      "versionCode": 48,
+      "adaptiveIcon": {
+        "foregroundImage": "./adaptive-icon.png",
+        "backgroundColor": "#E80B87"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "POST_NOTIFICATIONS",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "LadyGo использует геолокацию для определения подачи и сопровождения поездки.",
+          "locationAlwaysAndWhenInUsePermission": "Когда водитель выходит на линию, LadyGo передаёт его местоположение пассажиру и диспетчеру даже при свёрнутом приложении.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      "expo-notifications",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "LadyGo использует выбранные фотографии для карточки водителя и автомобиля.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "@maplibre/maplibre-react-native"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "95ac82ec-010d-4770-9aba-9f52878e1b3b"
+      }
+    },
+    "newArchEnabled": true
+  }
+}
