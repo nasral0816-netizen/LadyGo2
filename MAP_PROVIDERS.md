@@ -1,20 +1,19 @@
-# LadyGo map providers (6.7.8.4)
+# LadyGo map providers — verified client implementation
 
-- OpenFreeMap: default MapLibre basemap.
-- Geoapify: primary address autocomplete and driving routing when GEOAPIFY_API_KEY is configured.
-- Photon: fallback address search.
-- Nominatim and Android Geocoder: additional address fallbacks.
-- OSRM public routers: fallback driving routes.
-- Protomaps: optional self-hosted MapLibre style/PMTiles. Set PROTOMAPS_STYLE_URL to a reachable MapLibre style JSON that references a hosted PMTiles archive. Protomaps is not a geocoder or routing API.
+## Current implementation found in src/LadyGoApp.js
 
-## GitHub Actions secrets
-Repository Settings -> Secrets and variables -> Actions:
-- GEOAPIFY_API_KEY: Geoapify project API key. If absent, Photon and existing fallbacks remain active.
-- PROTOMAPS_STYLE_URL: optional URL to a hosted MapLibre style JSON backed by PMTiles. If absent, OpenFreeMap remains the basemap.
+- **MapLibre** renders the map using the OpenFreeMap Liberty style.
+- **Photon** is used for address suggestions.
+- **OSRM public routing** is used for driving route calculation.
+- **Expo Location / Android Geocoder** provide device location and reverse geocoding fallbacks.
+- Public Photon and OSRM services have usage limits and no production uptime guarantee.
 
-Keys are injected at build time and must not be committed to source code.
+## Not yet confirmed as integrated
 
-Public Photon, Nominatim, and OSRM endpoints have usage policies, rate limits, and no uptime guarantee. For production traffic, use an appropriate provider plan or self-hosted infrastructure.
+- Geoapify is mentioned in older documentation but no Geoapify API call was found in the checked client source.
+- Protomaps is an optional configuration idea; no self-hosted style is configured in the checked app.
+- A production geocoding/routing provider and its service plan still need to be selected before high-volume launch.
 
+## Configuration
 
-Build note: Geoapify is enabled when the repository secret is present. Protomaps remains optional and is not enabled until a hosted style URL is supplied.
+`EXPO_PUBLIC_PROTOMAPS_STYLE_URL` is a future/optional style override. Do not commit provider secrets. Client-side `EXPO_PUBLIC_*` values are visible in the built app and must never contain server credentials.
