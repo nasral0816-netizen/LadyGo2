@@ -1,0 +1,22 @@
+{
+  "cli": {
+    "version": ">= 15.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "apk": {
+      "distribution": "internal",
+      "node": "22.23.3",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "distribution": "internal",
+      "node": "22.23.3",
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}
